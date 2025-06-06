@@ -48,7 +48,7 @@ async function fetchBirdSymbolism(species) {
   debugger;
 
   try {
-    const response = await fetch("http://localhost:3000/api/omen", {
+    const response = await fetch("https://augury.onrender.com/api/omen", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ species })
