@@ -1,0 +1,28 @@
+body {
+  background-color: #0f0f0f;
+  color: #fafafa;
+  font-family: 'Georgia', serif;
+  text-align: center;
+  padding: 50px;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+}
+
+img {
+  width: 600px;
+  max-width: 100%;
+  display: block;
+  margin: 20px auto;
+  border: 3px solid #fafafa;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.caption {
+  font-style: italic;
+  font-size: 1.2em;
+  margin-top: 10px;
+}
