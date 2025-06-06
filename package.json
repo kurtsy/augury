@@ -2,7 +2,7 @@
   "name": "Augury",
   "version": "1.0.0",
   "description": "",
-  "main": "script.js",
+  "main": "server.js",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
