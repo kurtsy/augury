@@ -4,31 +4,65 @@ body {
   font-family: 'Georgia', serif;
   text-align: center;
   padding: 50px;
+  margin: 0;
 }
 
 .container {
-  max-width: 600px;
+  max-width: 700px; /* wider for readability */
   margin: auto;
+  padding: 0 20px;
 }
+
+img {
+  display: block;
+  margin: 20px auto;
+  width: 100%;
+  max-width: 600px;
+  max-height: 800px;
+  object-fit: contain;
+  background-color: transparent;  /* ensure background blends in */
+  border: 3px solid #fafafa;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  transition: opacity 0.3s ease-in-out;
+}
+
 
 #birdImage.loading {
   opacity: 0.5;
   filter: blur(2px);
-  transition: all 0.3s ease-in-out;
-}
-
-img {
-  width: 600px;
-  max-width: 100%;
-  display: block;
-  margin: 20px auto;
-  border: 3px solid #fafafa;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
 .caption {
   font-style: italic;
-  font-size: 1.2em;
+  font-size: 1.4em; /* slightly larger */
   margin-top: 10px;
+}
+
+#birdSymbolism {
+  font-size: 1.2em; /* larger for readability */
+  line-height: 1.6;  /* more comfortable spacing */
+  margin-top: 20px;
+}
+
+button {
+  background-color: #2d2d2d; /* rich dark button */
+  color: #ffffff;
+  font-size: 1em;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+button:hover {
+  background-color: #3e3e3e;
+  transform: scale(1.02);
+}
+
+button:active {
+  background-color: #1c1c1c;
+  transform: scale(0.98);
 }
