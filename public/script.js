@@ -7,28 +7,38 @@ async function fetchBirdImageFromWikimedia() {
   birdCaption.textContent = "Calling to the skies...";
   birdSymbolism.textContent = "Listening for wings...";
 
-  const birdSpeciesList = [
-    "Barn Owl", "Great Horned Owl", "Snowy Owl", "Barred Owl", "Eastern Screech Owl", "Long-eared Owl",
-    "Crow", "American Crow", "Raven", "Common Raven", "Magpie", "Eurasian Magpie", "Blue Jay", "Steller's Jay",
-    "Northern Cardinal", "Red-tailed Hawk", "Cooper's Hawk", "Sharp-shinned Hawk", "Bald Eagle",
-    "Golden Eagle", "Osprey", "Peregrine Falcon", "American Kestrel", "Turkey Vulture", "Black Vulture",
-    "Mute Swan", "Trumpeter Swan", "Tundra Swan", "Great Blue Heron", "Little Blue Heron", "Great Egret",
-    "Green Heron", "Snowy Egret", "Sandhill Crane", "Roseate Spoonbill", "White Ibis", "Glossy Ibis",
-    "Wood Stork", "American White Pelican", "Brown Pelican", "Anhinga", "Double-crested Cormorant",
-    "Kingfisher", "Belted Kingfisher", "Woodpecker", "Downy Woodpecker", "Pileated Woodpecker",
-    "Red-bellied Woodpecker", "Northern Flicker", "Ruby-throated Hummingbird", "Anna's Hummingbird",
-    "House Finch", "American Goldfinch", "European Goldfinch", "Evening Grosbeak", "Cedar Waxwing",
-    "Black-capped Chickadee", "Tufted Titmouse", "Carolina Wren", "House Wren", "Eastern Bluebird",
-    "American Robin", "Gray Catbird", "Northern Mockingbird", "Brown Thrasher", "Common Grackle",
-    "Red-winged Blackbird", "Eastern Meadowlark", "Western Meadowlark", "European Starling",
-    "Swallow", "Barn Swallow", "Tree Swallow", "Purple Martin", "Common Loon", "Pied-billed Grebe",
-    "Horned Grebe", "Killdeer", "Wilson's Snipe", "American Woodcock", "Ring-billed Gull",
-    "Herring Gull", "Laughing Gull", "Common Tern", "Caspian Tern", "Rock Dove", "Mourning Dove",
-    "White-winged Dove", "Peacock", "Indian Peafowl", "Quail", "Gambel's Quail",
-    "California Quail", "Northern Bobwhite", "Emu", "Ostrich", "Cassowary", "Shoebill", "Hoatzin",
-    "Secretarybird", "Andean Condor", "Resplendent Quetzal", "Bird of Paradise", "Lyrebird",
-    "Fairy Penguin", "King Penguin", "African Penguin", "Flamingo", "American Flamingo"
-  ];
+const birdSpeciesList = [
+  "Owl", "Crow", "Raven", "Magpie", "Jay", "Cardinal", "Hawk", "Eagle",
+  "Vulture", "Falcon", "Kestrel", "Osprey", "Swan", "Egret", "Crane",
+  "Spoonbill", "Ibis", "Stork", "Pelican", "Anhinga", "Cormorant", "Kingfisher",
+  "Woodpecker", "Flicker", "Hummingbird", "Finch", "Goldfinch", "Grosbeak",
+  "Waxwing", "Chickadee", "Titmouse", "Wren", "Bluebird", "Robin", "Catbird",
+  "Mockingbird", "Thrasher", "Grackle", "Blackbird", "Meadowlark", "Starling",
+  "Swallow", "Martin", "Loon", "Grebe", "Killdeer", "Snipe", "Woodcock", "Gull",
+  "Tern", "Dove", "Peacock", "Quail", "Bobwhite", "Emu", "Ostrich", "Cassowary",
+  "Shoebill", "Hoatzin", "Secretarybird", "Condor", "Quetzal", "Bird of Paradise",
+  "Lyrebird", "Penguin", "Flamingo", "Albatross", "Nightingale", "Canary",
+  "Pigeon", "Parrot", "Cockatoo", "Macaw", "Lovebird", "Toucan", "Hornbill",
+  "Jacana", "Avocet", "Lapwing", "Phalarope", "Rail", "Bustard", "Cuckoo",
+  "Swift", "Coot", "Bittern", "Curlew", "Godwit", "Sandpiper", "Whimbrel",
+  "Skimmer", "Shearwater", "Petrel", "Booby", "Frigatebird", "Greylag Goose",
+  "Canada Goose", "Duck", "Teal", "Mallard", "Shoveler", "Pintail", "Eider",
+  "Harlequin Duck", "Scoter", "Merganser", "Weaver", "Bowerbird", "Bee-eater", "Roller", "Drongo", "Shrike", "Lark", "Bulbul", "Warbler", "Thrush", "Pipit", "Accentor", "Bunting", "Tanager",
+  "Barbet", "Sunbird", "Spurfowl", "Francolin", "Bustard", "Cisticola",
+  "Courser", "Pratincole", "Stone-curlew", "Pluvian", "Jacamar", "Antbird",
+  "Frogmouth", "Nightjar", "Oilbird", "Seriema", "Kagu", "Tinamous", "Guineafowl",
+  "Roadrunner", "Coucal", "Ani", "Turaco", "Mousebird", "Sunbittern", "Tropicbird",
+  "Egret", "Heron", "Bittern", "Crake", "Moorhen", "Gallinule", "Spoonbill",
+  "Bustard", "Rail", "Cormorant", "Sheathbill", "Harrier", "Buzzard",
+  "Jabiru", "Stilt", "Phalarope", "Dotterel", "Turnstone", "Wagtail", "Trogon",
+  "Motmot", "Chough", "Darter", "Rook", "Wheatear", "Siskin", "Kinglet",
+  "Gannet", "Iora", "Leafbird", "Nuthatch", "Treecreeper", "Flowerpecker",
+  "Fairywren", "Boobook", "Grassbird", "Babbler", "Laughingthrush", "Minivet",
+  "Paradise Flycatcher", "Helmetshrike", "Brubru", "Plover", "Dotterel", "Sandgrouse",
+  "Bushshrike", "Penduline Tit", "Rufous Hornero", "Lapwing", "Thick-knee", "Ovenbird",
+  "Manakin", "Cotinga", "Bellbird", "Antpitta", "Tapaculo", "Trumpeter", "Chachalaca"
+];
+
 
   let tries = 0;
   const maxTries = 10;

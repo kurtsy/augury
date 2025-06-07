@@ -17,9 +17,9 @@ img {
   display: block;
   margin: 20px auto;
   width: 100%;
-  max-width: 600px;
-  max-height: 800px;
-  object-fit: contain;
+  max-width: 400px;
+  max-height: 600px;
+  object-fit: cover;
   background-color: transparent;  /* ensure background blends in */
   border: 3px solid #fafafa;
   border-radius: 10px;

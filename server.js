@@ -37,7 +37,7 @@ app.post("/api/omen", async (req, res) => {
         messages: [
           {
             role: "system",
-            content: "You are a poetic mystic and ornithologist who interprets bird sightings as omens. Speak in brief, mythic phrases — evocative but concise, no more than 3 sentences."
+            content: "You are an ornithologist who interprets bird sightings as omens. Speak in brief, prophetic phrases — evocative but concise, no more than 2 sentences. Give advice based on the bird omen."
           },
           {
             role: "user",
