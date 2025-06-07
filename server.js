@@ -1,14 +1,26 @@
 const express = require("express");
 const fetch = require("node-fetch"); // node-fetch v2 required
 const cors = require("cors");
+const path = require("path");
 require("dotenv").config();
 
 console.log("Loaded API Key:", process.env.OPENAI_API_KEY?.slice(0, 10) + "...");
 
 const app = express();
+
+// Middleware
 app.use(cors());
 app.use(express.json());
 
+// 🔹 Serve static files from the "public" folder
+app.use(express.static(path.join(__dirname, "public")));
+
+// 🔹 Root route fallback
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
+// 🔹 API endpoint for interpreting omens
 app.post("/api/omen", async (req, res) => {
   const { species } = req.body;
 
@@ -20,12 +32,12 @@ app.post("/api/omen", async (req, res) => {
         "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`
       },
       body: JSON.stringify({
-        model: "gpt-3.5-turbo", // ✅ safest model to ensure access
+        model: "gpt-3.5-turbo",
         temperature: 0.9,
         messages: [
           {
             role: "system",
-            content: "YYou are a poetic mystic and ornithologist who interprets bird sightings as omens. Speak in brief, mythic phrases — evocative but concise, no more than 3 sentences."
+            content: "You are a poetic mystic and ornithologist who interprets bird sightings as omens. Speak in brief, mythic phrases — evocative but concise, no more than 3 sentences."
           },
           {
             role: "user",
@@ -36,7 +48,7 @@ app.post("/api/omen", async (req, res) => {
     });
 
     const data = await response.json();
-    console.log("🔍 Raw OpenAI response:", JSON.stringify(data, null, 2)); // debug
+    console.log("🔍 Raw OpenAI response:", JSON.stringify(data, null, 2));
 
     if (!data.choices || !data.choices[0]) {
       throw new Error("No choices returned from OpenAI.");
@@ -51,6 +63,7 @@ app.post("/api/omen", async (req, res) => {
   }
 });
 
+// Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Proxy server running on port ${PORT}`);

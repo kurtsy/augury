@@ -11,6 +11,12 @@ body {
   margin: auto;
 }
 
+#birdImage.loading {
+  opacity: 0.5;
+  filter: blur(2px);
+  transition: all 0.3s ease-in-out;
+}
+
 img {
   width: 600px;
   max-width: 100%;
